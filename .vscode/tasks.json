@@ -1,0 +1,54 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: cl.exe build active file",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",                                          // Generate Debug Info
+                "/EHsc",                                        // Enable C++ exceptions with stack unwinding
+                "/nologo",                                      // Suppress startup banner
+                "/Wall",                                        // Enable most warnings
+                "/WX",                                          // Treat warnings as errors
+                "/std:c++17",                                   // Specify C++17 Language Standard
+                "${file}",                                      // Input source file
+                "/Fo${workspaceFolder}\\build\\${fileBasenameNoExtension}.obj", // Output .obj in /build
+                "/Fe${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe", // Output .exe in /build
+                "/Fd${workspaceFolder}\\build\\${fileBasenameNoExtension}.pdb"  // Output .pdb in /build
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": ""
+        },
+        {
+            "label": "Run",
+            "type": "shell",
+            "command": "${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe", // Command to run the executable
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "detail": ""
+        },
+        {
+            "label": "Clean build files",
+            "type": "shell",
+            "command": "rm \"${workspaceFolder}\\build\\*.*\"", // Windows command to delete files
+            "group": {
+                "kind": "none",
+                "isDefault": true
+            },
+            "detail": "",
+            "problemMatcher": []
+        }
+    ]
+}
