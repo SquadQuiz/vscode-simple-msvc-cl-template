@@ -1,1 +1,1 @@
-# Visual Studio Code IDE + CMake Build + MSVC-Cl Compiler
+# Visual Studio Code IDE + MSVC-Cl Compiler
